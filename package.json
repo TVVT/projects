@@ -1,0 +1,19 @@
+{
+  "name": "TVVT-Projects",
+  "version": "0.1.0",
+  "devDependencies": {
+    "gulp":"*",
+    "gulp-uglify":"*",
+    "gulp-rename":"*",
+    "gulp-cssmin":"*",
+    "gulp-watch" : "*",
+    "gulp-less" : "*",
+    "yargs":"*",
+    "gulp-util":"*",
+    "gulp-base64":"*",
+    "gulp-header":"*",
+    "gulp-changed":"*",
+    "gulp-sourcemaps":"*",
+    "tvvt-gulp-sourcemaps":"*"
+  }
+}

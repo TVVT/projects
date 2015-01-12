@@ -1,0 +1,1591 @@
+// @维护人：张晶晶
+// @内容：公共属性、模块
+
+@import 'common.less';
+
+// [颜色]
+// 调用方式:
+// color:@colorBase;
+// background-color:@colorBase;
+// border-bottom:1px solid @colorBase;
+
+
+// [colorCur 导航栏/按钮/当前状态文字]
+
+@colorCur:#ff3c3c;
+
+// [colorIcon 按钮/图标]
+
+@colorIcon:#f39800;
+
+// [colorBase 主文字/按钮]
+
+@colorBase:#000;
+
+// [colorTwo 二级文字]
+
+@colorTwo:#666;
+
+// [colorThree 三级文字/导航栏]
+
+@colorThree:#999;
+
+// [colorFour 分割线]
+
+@colorFour:#bbb;
+
+// [colorBd 边框色]
+
+@colorBd:#e5e5e5;
+
+// [colorBgF5 背景色-灰色]
+
+@colorBgF5:#f5f5f5;
+
+// [colorBgFf 背景色-白色]
+
+@colorBgFf:#fff;
+
+// [colorLine 线条颜色]
+
+@colorLine:#dcdcdc;
+
+// [字体大小]
+// 调用方式:
+// font-size:@font10;
+
+@font8:0.8rem;
+@font10:1.0rem;
+@font12:1.2rem;
+@font14:1.4rem;
+@font16:1.6rem;
+@font17:1.7rem;
+@font18:1.8rem;
+@font20:2.0rem;
+@font22:2.2rem;
+
+// [图标-未完成]
+// dom:
+// <span class="icon"></span> 
+// 调用方式:
+// .icon; || .icon(#f00,20px);
+
+.icon(@color:@colorTwo;@fontSize:@font20){
+	background-color:@colorBgF5;
+	color:@color;
+	font-size:@fontSize;
+}
+
+// 新方法
+// [头部导航-模块]
+// 调用方式:
+// .ele_header; 
+
+.ele_header(@value:none)when(default()){
+    .public_com-header{
+        position:relative;
+        z-index:150;
+        height:44px;
+        border-bottom:1px solid #e5e5e5;
+        background-color:#fff;
+       
+        .left{
+            position:absolute;
+            top:7px;
+            left:0;
+            z-index:152;
+            display:block;
+            width:23px;
+            height:30px;
+            padding:0 5px;
+            text-align:center;
+
+            // 返回按钮
+            &.icon-back{
+                color:#ff3c3c;
+                font-size:2.3rem;
+                line-height:30px;
+            }
+
+            // 定位城市
+            &.icon-location{
+                width:auto;
+                color:#999;
+                font-size:1.4rem;
+                line-height:30px;
+
+                &:before{
+                    color:#666;
+                    font-size:1.6rem;
+                    vertical-align:-1px;
+                }
+            }
+        }
+
+        .search_box{
+            position:relative;
+            z-index:151;
+            height:30px;
+            margin:0 80px 0 33px;
+            .translate(0,7px);
+
+            .search_txt{
+                width: 100%;
+                height: 30px;
+                padding: 5px 10px 5px 30px;
+                border-radius: 14px;
+                border: 1px solid #c6c6c6;
+                background-color: #fff;
+                color: #000;
+                font-size: 1.2rem;
+                line-height: 18px;
+                .box-sizing;
+            }
+            .icon-search_small{
+                position: absolute;
+                top: 3px;
+                left: 5px;
+                color: #a6a6a6;
+                font-size: 2.5rem;
+            }
+        }
+
+        h1{
+            position:relative;
+            z-index:151;
+            height: 44px;
+            padding: 0 25%;
+            color: #000;
+            font-size: 1.7rem;
+            line-height: 44px;
+            font-weight: normal;
+            text-align: center;
+            .flexbox;
+            .justify-content;
+            .align-items;
+            .ellipsis();
+
+            .title{
+                display:block;
+                // max-width:90%;
+                // vertical-align:middle;
+                // max-width:-moz-calc(100% - 15px);
+                // max-width:-webkit-calc(100% - 15px);
+                // max-width:calc(100% - 15px);
+                .ell;
+            }
+
+            // 标题下拉按钮
+            .icon-down_arrow{
+                display:block;
+                width:15px;
+                height:15px;
+                color:#666;
+                font-size:1.8rem;
+            }
+        }
+
+        .rightBox{
+            position: absolute;
+            right: 5px;
+            top: 7px;
+            z-index:152;
+            padding-right:5px;
+        }
+
+        .right{
+            display: inline-block;
+            position: relative;
+            top: 0;
+            height: 30px;
+            padding: 0 5px;
+            color: #979797;
+            font-size: 1.4rem;
+            line-height: 50px;
+            text-align: center;
+            vertical-align: middle;
+
+            &:visited{
+                color: #666;
+            }
+
+            // 按钮
+            &.rbtn_box{
+                display: block;
+                top: 0;
+                height: 28px;
+                padding: 0 15px;
+                border-radius: 4px;
+                border: 1px solid #ff3c3c;
+                background-color: #ff3c3c;
+                color: #FFFFFF;
+                font-size: 1.4rem;
+                line-height: 28px;
+
+                &:active {
+                    background-color: darken(#ff3c3c, 10%);
+                }
+            }
+
+            &[class^="icon-"],&[class*=" icon-"]{
+                color: #ff3c3c;
+                font-size: 2rem;
+                line-height: 30px;
+            }
+            &.icon-more {
+                font-size: 2.8rem;
+            }
+            &.icon-home {
+                font-size: 2rem;
+            }
+            &.icon-setting {
+                font-size: 2.3rem;
+            }
+            &.icon-edit {
+                font-size: 2.3rem;
+            }
+            &.icon-cart {
+                font-size: 2.3rem;
+            }
+
+            .sumClass {
+                display: inline-block;
+                position: absolute;
+                z-index: 1;
+                right: 0;
+                top: -5px;
+                min-width: 6px;
+                height: 12px;
+                padding: 0 3px;
+                border-radius: 12px;
+                background-color: #ff3c3c;
+                color: #ffffff;
+                font-size: 1rem;
+                line-height: 12px;
+
+                &:empty{
+                    display: none;
+                }
+            }
+        }
+
+        .more_list{
+            position: absolute;
+            right: 0;
+            top:35px;
+            z-index: 999;
+            width: 100px;
+            padding: 0 10px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.6);
+            .flexbox;
+            .flexbox_column;
+
+            &.hide{
+                display: none;
+            }
+
+            .ico {
+                display: block;
+                position: absolute;
+                z-index: 1000;
+                left: 56px;
+                top: -6px;
+                width: 12px;
+                height: 6px;
+
+                &:before {
+                    content:'';
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0px;
+                    height: 0px;
+                    border: 0;
+                    border-right: 6px solid rgba(0, 0, 0, 0.6);
+                    border-top: 6px solid transparent;
+                }
+
+                &:after {
+                    content:'';
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 0px;
+                    height: 0px;
+                    border: 0;
+                    border-left: 6px solid rgba(0, 0, 0, 0.6);
+                    border-top: 6px solid transparent;
+                }
+            }
+            .moreA {
+                display: block;
+                color: #f5f5f5;
+                font-size: 1.2rem;
+                padding: 15px 0;
+                text-align: center;
+                border-top: 1px #919191 solid;
+                &:nth-child(2) {
+                    border-top: none 0;
+                }
+            }
+        }
+    }
+}
+
+// 新方法
+// [头部导航有下拉-模块]
+//
+// 调用方式:
+// .ele_header(drop); 
+
+.ele_header(@vaule)when(@vaule=drop){
+    .public_com-header{
+        position:relative;
+        z-index:150;
+        height:44px;
+        border-bottom:1px solid #e5e5e5;
+        background-color:#fff;
+       
+        .left{
+            position:absolute;
+            top:7px;
+            left:0;
+            z-index:152;
+            display:block;
+            width:23px;
+            height:30px;
+            padding:0 5px;
+            text-align:center;
+
+            // 返回按钮
+            &.icon-back{
+                color:#ff3c3c;
+                font-size:2.3rem;
+                line-height:30px;
+            }
+
+            // 定位城市
+            &.icon-location{
+                width:auto;
+                color:#999;
+                font-size:1.4rem;
+                line-height:30px;
+
+                &:before{
+                    color:#666;
+                    font-size:1.6rem;
+                    vertical-align:-1px;
+                }
+            }
+        }
+
+        .search_box{
+            position:relative;
+            z-index:151;
+            height:30px;
+            margin:0 80px 0 33px;
+            .translate(0,7px);
+
+            .search_txt{
+                width: 100%;
+                height: 30px;
+                padding: 5px 10px 5px 30px;
+                border-radius: 14px;
+                border: 1px solid #c6c6c6;
+                background-color: #fff;
+                color: #000;
+                font-size: 1.2rem;
+                line-height: 18px;
+                .box-sizing;
+            }
+            .icon-search_small{
+                position: absolute;
+                top: 3px;
+                left: 5px;
+                color: #a6a6a6;
+                font-size: 2.5rem;
+            }
+            
+            .element_components-searchList {
+                position: absolute;
+                z-index: 1000;
+                left:0;
+                top:0;
+                border-top:1px #e5e5e5 solid;
+                width: 100%;
+                background-color: #ffffff;
+                padding:0 10px;
+                .box-sizing;
+                .transition(all .3s linear);
+                display: none;
+                li {
+                    cursor: pointer;
+                    height:43px;
+                    border-bottom:1px #e5e5e5 solid;
+                    a{
+                        line-height: 43px;
+                        display: block;
+                        widows: 100%;
+                        height: 100%;
+                        &.icon-history {
+                            color:#c6c6c6;
+                            font-size: 14px;
+                        }
+                        span {
+                            color:#999999;
+                        }
+                    }
+                }
+                .clear_history {
+                    height: 44px;
+                    line-height: 4rem;
+                    display: block;
+                    color:#666666;
+                    font-size: 14px;
+                    text-align: center;
+                    .icon-clear {
+                        color:#ff3c3c;
+                        font-size: 17px;
+                        padding-right: 10px;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+
+        h1{
+            position:relative;
+            z-index:151;
+            height: 44px;
+            padding: 0 25%;
+            color: #000;
+            font-size: 1.7rem;
+            line-height: 44px;
+            font-weight: normal;
+            text-align: center;
+            .flexbox;
+            .justify-content;
+            .align-items;
+
+            .title{
+                display:block;
+                // max-width:90%;
+                // vertical-align:middle;
+                // max-width:-moz-calc(100% - 15px);
+                // max-width:-webkit-calc(100% - 15px);
+                // max-width:calc(100% - 15px);
+                .ell;
+            }
+
+            // 标题下拉按钮
+            .icon-down_arrow{
+                display:block;
+                width:15px;
+                height:15px;
+                color:#666;
+                font-size:1.8rem;
+            }
+        }
+
+        .rightBox{
+            position: absolute;
+            right: 5px;
+            top: 7px;
+            z-index:152;
+            padding-right:5px;
+        }
+
+        .right{
+            display: inline-block;
+            position: relative;
+            top: 0;
+            height: 30px;
+            padding: 0 5px;
+            color: #979797;
+            font-size: 1.4rem;
+            line-height: 50px;
+            text-align: center;
+            vertical-align: middle;
+
+            &:visited{
+                color: #666;
+            }
+
+            // 按钮
+            &.rbtn_box{
+                display: block;
+                top: 0;
+                height: 28px;
+                padding: 0 15px;
+                border-radius: 4px;
+                border: 1px solid #ff3c3c;
+                background-color: #ff3c3c;
+                color: #FFFFFF;
+                font-size: 1.4rem;
+                line-height: 28px;
+
+                &:active {
+                    background-color: darken(#ff3c3c, 10%);
+                }
+            }
+
+            &[class^="icon-"],&[class*=" icon-"]{
+                color: #ff3c3c;
+                font-size: 2rem;
+                line-height: 30px;
+            }
+            &.icon-more {
+                font-size: 2.8rem;
+            }
+            &.icon-home {
+                font-size: 2rem;
+            }
+            &.icon-setting {
+                font-size: 2.3rem;
+            }
+            &.icon-edit {
+                font-size: 2.3rem;
+            }
+            &.icon-cart {
+                font-size: 2.3rem;
+            }
+
+            .sumClass {
+                display: inline-block;
+                position: absolute;
+                z-index: 1;
+                right: 0;
+                top: -5px;
+                min-width: 6px;
+                height: 12px;
+                padding: 0 3px;
+                border-radius: 12px;
+                background-color: #ff3c3c;
+                color: #ffffff;
+                font-size: 1rem;
+                line-height: 12px;
+
+                &:empty{
+                    display: none;
+                }
+            }
+        }
+
+        .more_list{
+            position: absolute;
+            right: 0;
+            top:35px;
+            z-index: 999;
+            width: 100px;
+            padding: 0 10px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.6);
+            .flexbox;
+            .flexbox_column;
+
+            &.hide{
+                display: none;
+            }
+
+            .ico {
+                display: block;
+                position: absolute;
+                z-index: 1000;
+                left: 56px;
+                top: -6px;
+                width: 12px;
+                height: 6px;
+
+                &:before {
+                    content:'';
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0px;
+                    height: 0px;
+                    border: 0;
+                    border-right: 6px solid rgba(0, 0, 0, 0.6);
+                    border-top: 6px solid transparent;
+                }
+
+                &:after {
+                    content:'';
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 0px;
+                    height: 0px;
+                    border: 0;
+                    border-left: 6px solid rgba(0, 0, 0, 0.6);
+                    border-top: 6px solid transparent;
+                }
+            }
+            .moreA {
+                display: block;
+                color: #f5f5f5;
+                font-size: 1.2rem;
+                padding: 15px 0;
+                text-align: center;
+                border-top: 1px #919191 solid;
+                &:nth-child(2) {
+                    border-top: none 0;
+                }
+            }
+        }
+    }
+
+    // [头部导标题下拉-模块]
+    .public_com-drop{
+        display:none;
+        position: absolute;
+        left: 0;
+        top:45px;
+        z-index: 809;
+        width: 100%;
+        height: 100%;
+        background-color: fade(#000, 70%);
+        overflow-y: hidden;
+        overflow: scroll;
+        -webkit-overflow-scrolling:touch;
+        .flex;
+        ::-webkit-scrollbar{display:none;}
+
+        &.show{
+            display:block;
+            .drop_down{
+                .translate3d(0, 0);
+            }
+        }
+
+        .drop_down{
+            width: 100%;
+            background-color: #fff;
+            .translate(0,-100%);
+            .transition(-webkit-transform 0.3s);
+            .transition(transform 0.3s);
+            .item{
+                display: block;
+                height: 34px;
+                line-height: 34px;
+                margin:0 6.25%;
+                border-bottom: 1px solid #f5f5f5;
+                text-align: center;
+                font-size: 1.4rem;
+                color: #666;
+                &:visited,&:active{
+                    color: #666;
+                }
+                &:last-child{
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+// 老方法
+// [头部导航-模块]
+// 调用方式:
+// div{
+//     .ele_modHeader;  
+// } 
+
+.ele_modHeader(){
+    position:relative;
+    z-index:150;
+    height:44px;
+    border-bottom:1px solid #e5e5e5;
+    background-color:#fff;
+   
+    .left{
+        position:absolute;
+        top:7px;
+        left:0;
+        z-index:152;
+        display:block;
+        width:23px;
+        height:30px;
+        padding:0 5px;
+        text-align:center;
+
+        // 返回按钮
+        &.icon-back{
+            color:#ff3c3c;
+            font-size:2.3rem;
+            line-height:30px;
+        }
+
+        // 定位城市
+        &.icon-location{
+            width:auto;
+            color:#999;
+            font-size:1.4rem;
+            line-height:30px;
+
+            &:before{
+                color:#666;
+                font-size:1.6rem;
+                vertical-align:-1px;
+            }
+        }
+    }
+
+    .search_box{
+        position:relative;
+        z-index:151;
+        height:30px;
+        margin:0 80px 0 33px;
+        .translate(0,7px);
+
+        .search_txt{
+            width: 100%;
+            height: 30px;
+            padding: 5px 10px 5px 30px;
+            border-radius: 14px;
+            border: 1px solid #c6c6c6;
+            background-color: #fff;
+            color: #000;
+            font-size: 1.2rem;
+            line-height: 18px;
+            .box-sizing;
+        }
+        .icon-search_small{
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            color: #a6a6a6;
+            font-size: 2.5rem;
+        }
+    }
+
+    h1{
+        position:relative;
+        z-index:151;
+        height: 44px;
+        padding: 0 25%;
+        color: #000;
+        font-size: 1.7rem;
+        line-height: 44px;
+        font-weight: normal;
+        text-align: center;
+        .flexbox;
+        .justify-content;
+        .align-items;
+
+        .title{
+            display:block;
+            .ell;
+        }
+
+        // 标题下拉按钮
+        .icon-down_arrow{
+            display:block;
+            width:15px;
+            height:15px;
+            color:#666;
+            font-size:1.8rem;
+        }
+    }
+
+    .rightBox{
+        position: absolute;
+        right: 5px;
+        top: 7px;
+        z-index:152;
+        padding-right:5px;
+    }
+
+    .right{
+        display: inline-block;
+        position: relative;
+        top: 0;
+        height: 30px;
+        padding: 0 5px;
+        color: #979797;
+        font-size: 1.4rem;
+        line-height: 50px;
+        text-align: center;
+        vertical-align: middle;
+
+        &:visited{
+            color: #666;
+        }
+
+        // 按钮
+        &.rbtn_box{
+            display: block;
+            top: 0;
+            height: 28px;
+            padding: 0 15px;
+            border-radius: 4px;
+            border: 1px solid #ff3c3c;
+            background-color: #ff3c3c;
+            color: #FFFFFF;
+            font-size: 1.4rem;
+            line-height: 28px;
+
+            &:active {
+                background-color: darken(#ff3c3c, 10%);
+            }
+        }
+
+        &[class^="icon-"],&[class*=" icon-"]{
+            color: #ff3c3c;
+            font-size: 2rem;
+            line-height: 30px;
+        }
+        &.icon-more {
+            font-size: 2.8rem;
+
+            // &:after{
+            //     content:"";
+            //     display:block;
+            //     width:0;
+            // }
+        }
+        &.icon-home {
+            font-size: 2rem;
+        }
+        &.icon-setting {
+            font-size: 2.3rem;
+        }
+        &.icon-edit {
+            font-size: 2.3rem;
+        }
+        &.icon-cart {
+            font-size: 2.3rem;
+        }
+
+        .sumClass {
+            display: inline-block;
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: -5px;
+            min-width: 6px;
+            height: 12px;
+            padding: 0 3px;
+            border-radius: 12px;
+            background-color: #ff3c3c;
+            color: #ffffff;
+            font-size: 1rem;
+            line-height: 12px;
+
+            &:empty{
+                display: none;
+            }
+        }
+    }
+
+    .more_list{
+        position: absolute;
+        right: 0;
+        top:35px;
+        z-index: 999;
+        width: 100px;
+        padding: 0 10px;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.6);
+        .flexbox;
+        .flexbox_column;
+
+        &.hide{
+            display: none;
+        }
+
+        .ico {
+            display: block;
+            position: absolute;
+            z-index: 1000;
+            left: 56px;
+            top: -6px;
+            width: 12px;
+            height: 6px;
+
+            &:before {
+                content:'';
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0px;
+                height: 0px;
+                border: 0;
+                border-right: 6px solid rgba(0, 0, 0, 0.6);
+                border-top: 6px solid transparent;
+            }
+
+            &:after {
+                content:'';
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0px;
+                height: 0px;
+                border: 0;
+                border-left: 6px solid rgba(0, 0, 0, 0.6);
+                border-top: 6px solid transparent;
+            }
+        }
+        .moreA {
+            display: block;
+            color: #f5f5f5;
+            font-size: 1.2rem;
+            padding: 15px 0;
+            text-align: center;
+            border-top: 1px #919191 solid;
+            &:nth-child(2) {
+                border-top: none 0;
+            }
+        }
+    }
+}
+
+// 老方法
+// [头部导航标题下拉-模块]
+// 调用方式:
+// div{
+//     .ele_modHeaderPull;  
+// } 
+.ele_modHeaderPull(){
+    display:none;
+    position: absolute;
+    left: 0;
+    top:45px;
+    z-index: 809;
+    width: 100%;
+    height: 100%;
+    background-color: fade(#000, 70%);
+    overflow-y: hidden;
+    overflow: scroll;
+    -webkit-overflow-scrolling:touch;
+    .flex;
+    ::-webkit-scrollbar{display:none;}
+
+    &.show{
+        display:block;
+        .drop_down{
+            .translate3d(0, 0);
+        }
+    }
+
+    .drop_down{
+        width: 100%;
+        background-color: #fff;
+        .translate(0,-100%);
+        .transition(-webkit-transform 0.3s);
+        .transition(transform 0.3s);
+        .item{
+            display: block;
+            height: 34px;
+            line-height: 34px;
+            margin:0 6.25%;
+            border-bottom: 1px solid #f5f5f5;
+            text-align: center;
+            font-size: 1.4rem;
+            color: #666;
+            &:visited,&:active{
+                color: #666;
+            }
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+// [tab标签-模块]
+// dom:
+// 一 标题只有一行文字(红色):
+// <div>
+//    <a href="" class="item current">名称</a>
+//    <a href="" class="item">名称</a>
+// </div>
+
+// 二 标题两行，第二行为数字(红色):
+// <div class="modTabNum">
+//    <a href="" class="item cur">名称</a>
+//    <a href="" class="item">名称</a>
+// </div>
+
+// 三 一行 排行 + 图标(黄色):
+// <div>
+//    <a href="" class="item"
+// </div>
+
+// 一 调用方法(红色):
+// div{
+// 	.ele_modTab;
+// }
+
+// 二 调用方法(红色):
+// .modTabNum{
+//     .ele_modTab;
+// }
+
+// 三 调用方法(黄色):
+// div{
+// 	   .ele_modTab(orange);
+// }
+
+.ele_modTab(@value:red)when(default()){
+	height:45px;
+    background-color:@colorBgF5;
+	.flexbox;
+
+    .item{
+    	display:block;
+    	position:relative;
+        border-bottom:1px solid #ffabab;
+        color:@colorThree;
+        font-size:@font14;
+       	line-height:44px;
+        text-align:center;
+        .flex;
+
+        &:after{
+            content:'';
+            position:absolute;
+            right:0;
+            top:11px;
+            width:1px;
+            height:20px;
+            background-color:#d8d8d8;
+        }
+
+        &:last-child{
+            &:after{
+                display:none;
+            }
+        }
+
+        &.cur{
+            border-bottom:1px solid @colorCur;
+            color:@colorCur;
+            .box-shadow(0 -3px 0 @colorCur inset);
+            .transition(300ms);
+        }
+    }
+
+    &.modTabNum{
+
+    	a{
+    		padding-top:4px;
+    	}
+
+        .title{
+        	display:block;
+        	font-size:@font14;
+        	line-height:20px;
+        }
+
+    	.num{
+    		display:block;
+        	font-size:@font10;
+        	line-height:16px;
+        }
+    }
+}
+.ele_modTab(@vaule)when(@vaule=orange){
+	height:44px;
+    border-bottom:1px solid @colorBd;
+    background-color:@colorBgF5;
+    font-size:1.2rem;
+    text-align:center;
+    .flexbox;
+
+    .item{
+    	display:block;
+    	position:relative;
+    	color:@colorThree;
+    	line-height:44px;
+    	.flex;
+
+    	&:after{
+    		content:"";
+    		position:absolute;
+    		left:0;
+    		top:10px;
+    		width:1px;
+    		height:24px;
+    		overflow:hidden;
+    		background-color:@colorLine;
+    		font-size:0;
+    		line-height:0;
+    	}
+
+    	&:first-child{
+    		&:after{
+    			display:none;
+    		}
+    	}
+
+    	i {
+            font-size:2.0rem;
+            vertical-align:middle;
+            .transition(all, 0.5s);
+
+            &.icon-filter{
+            	font-size:1.5rem;
+            	margin-left:2px;
+            }
+        }
+
+        &.cur {
+            color:@colorIcon;
+        }
+    }
+
+    .icon{
+        display:block;
+        width:50px;
+        height:44px;
+        border-left:1px solid @colorLine;
+        color:@colorThree;
+        font-size:@font22;
+        line-height:44px;
+    }	
+}
+
+// [表单-模块]
+// dom:
+// <label>
+//     <i class="icon-user（图标class）">图标</i>
+//     <span class="input_title">标题：如：姓名</span>
+//     <span class="input_con"><input class="input_name" type="text" placeholder="请填写"" /></span>
+// </label>
+
+// 调用方式:
+// label{
+//     .ele_modInput;
+// }
+.ele_modInput(){
+	display:block;
+	position:relative;
+	height:44px;
+	border-top:1px solid #d8d8d8;
+	font-size:0;
+	line-height:44px;
+	.flexbox;
+
+	&:first-child{
+		border-top:none;
+
+		.icon-lock{
+			top:20px;
+		}
+	}
+
+	&:nth-child(2n){
+		.icon-idcard{
+			top:20px;
+		}
+	}
+
+	i{
+		display:inline-block;
+		position:absolute;
+		top:1px;
+		left:-40px;
+		width:40px;
+		height:44px;
+		color:#666;
+		font-size:1.6rem;
+		line-height:44px;
+		text-align:center;
+	}
+
+	span{
+		display:block;
+
+		&.input_title{
+			width:90px;
+			overflow:hidden;
+			color:#666;
+			font-size:1.4rem;
+			line-height:44px;
+			.ell;
+		}
+
+		&.input_con{
+            display: block;
+			height:44px;
+			padding-right:10px;
+			color:#333;
+			font-size:0;
+			line-height:44px;
+			.flex;
+
+			ins{
+				display:inline-block;
+				padding-right:10px;
+				font-size:1.4rem;
+				line-height:44px;
+				text-decoration:none;
+			}
+
+			input{
+				width:100%;
+				height:44px;
+				border:none;
+				font-size:1.4rem;
+				background:none;
+
+				&.input_phone_number{
+					width:70%;
+				}
+			}
+
+			::-webkit-input-placeholder {
+			   color:#999;
+			}
+
+			:-moz-placeholder {
+			   color:#999;  
+			}
+
+			::-moz-placeholder {
+			   color:#999;  
+			}
+
+			:-ms-input-placeholder {  
+			   color:#999;  
+			}
+		}
+	}
+}
+
+
+// [按钮] 
+// dom:
+// <span class="button_box"></span>
+// 调用方式:
+// 一 默认 (红色按钮)
+// .ele_button;
+
+// 二 (黑色无角;宽;高;字体大小)
+// .ele_button(blackCir;60px;20px;1.0rem);
+// .ele_button(blackCir;@width:60px;@height:20px;@fontSize:1.0rem);
+
+// [默认参数 red;width:100%;height:30px;font-size:1.4rem;]
+// 调用方式:
+// .ele_button;
+
+.ele_button(
+	@value:red;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(default()){
+	display:block;
+	width:@width;
+	height:@height;
+	overflow:hidden;
+	border-radius:5px;
+	border:1px solid #f23939;
+	background-color:@colorCur;
+	color:@colorBgFf;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+
+	&:active{
+		border-color:#d93333;
+		background-color:#e53636;
+		color:@colorBgFf;
+	}
+}
+
+// [红色 - 无角]
+// [redCir]
+// 调用方式:
+// .ele_button(redCir);
+ 
+.ele_button(
+	@value:red;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = redCir){
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:16px;
+	border:1px solid #f23939;
+	background-color:@colorCur;
+	color:@colorBgFf;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+
+	&:active{
+		border-color:#d93333;
+		background-color:#e53636;
+		color:@colorBgFf;
+	}
+}
+
+// [白色 - 无角]
+// [whiteCir]
+// 调用方式:
+// .ele_button(whiteCir); 
+.ele_button(
+	@value;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = whiteCir){
+
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:16px;
+	border:1px solid @colorBd;
+	background-color:@colorBgFf;
+	color:@colorTwo;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+	.box-sizing;
+
+	&:active{
+		border-color:#d1d1d1;
+		background-color:@colorLine;
+		color:@colorTwo;
+	}
+}
+
+// [白色]
+// [white]
+// 调用方式:
+// .ele_button(white);
+
+.ele_button(
+	@value;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = white){
+
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:5px;
+	border:1px solid @colorBd;
+	background-color:@colorBgFf;
+	color:@colorTwo;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+	.box-sizing;
+
+	&:active{
+		border-color:#d1d1d1;
+		background-color:@colorLine;
+		color:@colorTwo;
+	}
+}
+
+// [灰色 - 无角]
+// [greyCir]
+// 调用方式:
+// .ele_button(greyCir);
+.ele_button(
+	@value;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = greyCir){
+
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:16px;
+	border:1px solid #ddd;
+	background-color:@colorBgF5;
+	color:@colorBase;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+	.box-sizing;
+
+	&:active{
+		border-color:#c6c6c6;
+		background-color:@colorLine;
+		color:@colorBase;
+	}
+}
+
+// [灰色]
+// [grey]
+// 调用方式:
+// .ele_button(grey); 
+.ele_button(
+	@value;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = grey){
+
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:5px;
+	border:1px solid #ddd;
+	background-color:@colorBgF5;
+	color:@colorBase;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+	.box-sizing;
+
+	&:active{
+		border-color:#c6c6c6;
+		background-color:@colorLine;
+		color:@colorBase;
+	}
+}
+
+// [黑色 - 无角]
+// [blackCir]
+// 调用方式:
+// .ele_button(blackCir);
+.ele_button(
+	@value;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = blackCir){
+
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:16px;
+	border:1px solid #4b4b4b;
+	background-color:#4b4b4b;
+	color:@colorBgFf;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+	.box-sizing;
+
+	&:active{
+		border-color:#e79000;
+		background-color:@colorIcon;
+		color:@colorBgFf;
+	}
+}
+
+// [黑色]
+// [black]
+// 调用方式:
+// .ele_button(black);
+.ele_button(
+	@value;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = black){
+
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:5px;
+	border:1px solid #4b4b4b;
+	background-color:#4b4b4b;
+	color:@colorBgFf;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+	.box-sizing;
+
+	&:active{
+		border-color:#e79000;
+		background-color:@colorIcon;
+		color:@colorBgFf;
+	}
+}
+
+// [不可点击 - 无角]
+// [noClickCir]
+// 调用方式:
+// .ele_button(noClickCir); 
+.ele_button(
+	@value;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = noClickCir){
+
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:16px;
+	border:1px solid #d3d3d3;
+	background-color:#dedede;
+	color:@colorFour;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+	.box-sizing;
+
+	&:active{
+		border-color:#d3d3d3;
+		background-color:#dedede;
+		color:@colorFour;
+	}
+}
+
+// [不可点击]
+// [noClick]
+// 调用方式:
+// .ele_button(noClick);
+.ele_button(
+	@value;
+	@width:100%;
+	@height:30px;
+	@fontSize:1.4rem;)when(@value = noClick){
+
+	display:block;
+	width:@width;
+	height:@height;
+	border-radius:5px;
+	border:1px solid #d3d3d3;
+	background-color:#dedede;
+	color:@colorFour;
+	font-size:@fontSize;
+	line-height:@height;
+	text-align:center;
+	.box-sizing;
+
+	&:active{
+		border-color:#d3d3d3;
+		background-color:#dedede;
+		color:@colorFour;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

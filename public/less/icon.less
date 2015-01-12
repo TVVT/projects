@@ -1,0 +1,238 @@
+/**
+ * @维护人：张航
+*/
+
+// common
+@import 'common.less';
+
+/* CSS图标-全局 */
+.css-icon(){
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    line-height: 0;
+    vertical-align: middle;
+}
+/* 箭头 */
+.css-icon_arrow(@color;@width){
+    .css-icon();
+    text-align: center;
+    v{
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin: 3px 0;
+        border-top: @width solid @color;
+        border-right: @width solid @color;
+        vertical-align: middle;
+    }
+}
+/* 箭头-上 */
+.css-icon_arrow-top(@color:#bfbfbf;@width:2px){
+    .css-icon_arrow(@color;@width);
+    v{
+        .rotate3d(0, 0, 1, -45deg);
+    }
+}
+/* 箭头-右 */
+.css-icon_arrow-right(@color:#bfbfbf;@width:2px){
+    .css-icon_arrow(@color;@width);
+    v{
+        .rotate3d(0, 0, 1, 45deg);
+    }
+}
+/* 箭头-下 */
+.css-icon_arrow-bottom(@color:#bfbfbf;@width:2px){
+    .css-icon_arrow(@color;@width);
+    v{
+        .rotate3d(0, 0, 1, 135deg);
+    }
+}
+/* 箭头-左 */
+.css-icon_arrow-left(@color:#bfbfbf;@width:2px){
+    .css-icon_arrow(@color;@width);
+    v{
+        .rotate3d(0, 0, 1, -135deg);
+    }
+}
+/* 分类 */
+.css-icon_category(@color:#fff){
+    .css-icon();
+    &:before,&:after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        border-top: 2px solid @color;
+    }
+    &:before{
+        top: 0;
+    }
+    &:after{
+        bottom: 0;
+    }
+    v{
+        position: absolute;
+        top: 7px;
+        width: 100%;
+        border-top: 2px solid @color;
+    }
+}
+/* rss */
+.css-icon_rss(@color:orange){
+    .css-icon();
+    overflow: hidden;
+    &:before,&:after{
+        content: '';
+        position: absolute;
+        border:2px solid @color;
+        .radius(50%;);
+    }
+    &:before{
+        top: 0;
+        right: 0;
+        width: 28px;
+        height: 28px;
+    }
+    &:after{
+        top: 7px;
+        right: 7px;
+        width: 14px;
+        height: 14px;
+    }
+    v{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 2px;
+        border-top: 2px solid @color;
+    }
+}
+/* 警告 */
+.css-icon_warning(@color:#fe5955){
+    .css-icon();
+    &:before{
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid @color;
+        .radius(50%);
+    }
+    v{
+        position: absolute;
+        left: 7px;
+        top: 3px;
+        width: 2px;
+        height: 1px;
+        border-top: 7px solid @color;
+        border-bottom: 2px solid @color;
+    }
+}
+/* 正确 */
+.css-icon_correct(@color:green){
+    .css-icon();
+    &:before{
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid @color;
+        .radius(50%);
+    }
+    v{
+        content: '';
+        position: absolute;
+        left: 3px;
+        top: 5px;
+        width: 9px;
+        height: 4px;
+        border-left: 1px solid @color;
+        border-bottom: 1px solid @color;
+        .rotate3d(0, 0, 1, -45deg);
+    }
+}
+/* 坐标 */
+.css-icon_coordinate(@color:#666){
+    .css-icon();
+    v{
+        &:before{
+            content: '';
+            position: absolute;
+            left: 1px;
+            top: 0;
+            width: 11px;
+            height: 11px;
+            border:1px solid @color;
+            .radius(50% 50% 50% 0);
+            .rotate(-45deg);
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 4px;
+            width: 3px;
+            height: 3px;
+            border:1px solid @color;
+            .radius(50%);
+        }
+    }
+}
+/* 支付 */
+.css-icon_payment(@color:#666){
+    .css-icon();
+    &:before,&:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        border:1px solid @color;
+        .radius(2px);
+        background-color: #fff;
+    }
+    &:before{
+        top: 0;
+        width: 10px;
+        height: 14px;
+    }
+    &:after{
+        top: 4px;
+        width: 14px;
+        height: 10px;
+    }
+    v{
+        position: absolute;
+        right: 3px;
+        bottom: 4px;
+        z-index: 1;
+        width: 2px;
+        height: 2px;
+        border:1px solid @color;
+        .radius(50%);
+    }
+}
+/* 搜索 */
+.css-icon_search(@color:#9b9b9b){
+    .css-icon();
+    &:before,&:after{
+        content: '';
+        position: absolute;
+    }
+    &:before{
+        left: 0;
+        right: 0;
+        width: 11px;
+        height: 11px;
+        border:1px solid @color;
+        .radius(50%);
+
+    }
+    &:after{
+        right: 2px;
+        bottom: 0;
+        width: 0;
+        height: 4px;
+        border:1px solid @color;
+        .rotate(-45deg);
+    }
+}
